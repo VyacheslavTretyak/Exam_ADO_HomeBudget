@@ -1,0 +1,98 @@
+﻿<Window x:Class="HomeBudget.OperationDoc"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"		
+		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:HomeBudget"
+        mc:Ignorable="d"		   
+		
+         Title="Home Budget" Height="500" Width="600" MinHeight="500" MinWidth="500"  TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="24"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">	
+	<Grid Margin="30 30">
+		<Grid.RowDefinitions>
+			<RowDefinition/>			
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="Auto"/>
+		</Grid.ColumnDefinitions>
+		<Grid Grid.Row="0" Grid.ColumnSpan="4">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>		
+			
+			
+			<TextBlock Grid.Column="0" TextAlignment="Center" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="{DynamicResource SecondaryAccentBrush}">Operation</TextBlock>
+			<ToggleButton Name="operationToogle" Grid.Column="1" ></ToggleButton>
+			<TextBlock x:Name="costArrival" Grid.Column="2" VerticalAlignment="Center" Margin="10 0"><Run Text="arrival"/></TextBlock>
+		</Grid>
+		<TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"><Run Text="Date"/></TextBlock>
+		<DatePicker Name="dpDate" Grid.Row="1" Grid.Column="1" />
+		
+		<TextBlock Grid.Row="2" Grid.Column="0"  VerticalAlignment="Center" ><Run Text="Operation"/></TextBlock>
+		<ComboBox x:Name="cbOperation" Grid.Row="2" Grid.Column="1"  materialDesign:HintAssist.Hint="Search"  IsEditable="True"  materialDesign:HintAssist.HintOpacity=".26">
+			
+		</ComboBox>
+		<Button Name="btnOperationEdit" Grid.Row="2" Grid.Column="2" ToolTip="Edit Operation" Width="30" Height="30" Padding="0" Margin="5">
+			<materialDesign:PackIcon Kind="BorderColor"/>
+		</Button>
+		
+		<Button Name="btnOperationAdd" Grid.Row="2" Grid.Column="3" ToolTip="Add Operation" Width="30" Height="30" Padding="0" Margin="5">
+			<materialDesign:PackIcon Kind="Plus"/>
+		</Button>
+
+		<TextBlock Grid.Row="3" Grid.Column="0"  VerticalAlignment="Center"><Run Text="Account"/></TextBlock>
+		<ComboBox x:Name="cbAccount" Grid.Row="3" Grid.Column="1"   materialDesign:HintAssist.Hint="Search"  IsEditable="True"  materialDesign:HintAssist.HintOpacity=".26"/>
+		<Button Name="btnAccountEdit" Grid.Row="3" Grid.Column="2" ToolTip="Edit Account" Width="30" Height="30" Padding="0" Margin="5">
+			<materialDesign:PackIcon Kind="BorderColor"/>
+		</Button>
+		<Button Name="btnAccountAdd" Grid.Row="3" Grid.Column="3" ToolTip="Add Account" Width="30" Height="30" Padding="0" Margin="5">
+			<materialDesign:PackIcon Kind="Plus"/>
+		</Button>
+
+		<TextBlock Grid.Row="4" Grid.Column="0"  VerticalAlignment="Center" ><Run Text="Person"/></TextBlock>
+		<ComboBox x:Name="cbPerson" Grid.Row="4" Grid.Column="1"   materialDesign:HintAssist.Hint="Search"  IsEditable="True"  materialDesign:HintAssist.HintOpacity=".26"/>
+		<Button Name="btnPersonEdit" Grid.Row="4" Grid.Column="2" ToolTip="Edit Person" Width="30" Height="30" Padding="0" Margin="5">
+			<materialDesign:PackIcon Kind="BorderColor"/>
+		</Button>
+		<Button Name="btnPersonAdd" Grid.Row="4" Grid.Column="3" ToolTip="Add Person" Width="30" Height="30" Padding="0" Margin="5">
+			<materialDesign:PackIcon Kind="Plus"/>
+		</Button>
+
+		<TextBlock Grid.Row="5" Grid.Column="0"  VerticalAlignment="Center"><Run Text="Sum"/></TextBlock>
+		<TextBox x:Name="tbSum" Grid.Row="5" Grid.Column="1"  />
+		<Grid Grid.Row="6" Grid.ColumnSpan="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition/>
+
+			</Grid.ColumnDefinitions>
+			<materialDesign:PackIcon Grid.Row="7" Grid.Column="0" Kind="Comment" Foreground="{Binding 
+				ElementName=CommentTextBox, Path=BorderBrush}" />
+			<TextBox x:Name="CommentTextBox" Grid.Row="7" Grid.Column="1" ToolTip="Comment" materialDesign:HintAssist.Hint="Comment"/>
+		</Grid>
+		<Grid Grid.Row="8" Grid.ColumnSpan="4">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			<Button Name="btnCancel" Grid.Column="1" Margin="25 0" Content="Cancel"/>
+			<Button Name="btnSave" Grid.Column="0" Margin="25 0" Content="Save"/>
+		</Grid>
+	</Grid>
+</Window>

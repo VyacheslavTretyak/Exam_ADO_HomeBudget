@@ -3,10 +3,45 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:HomeBudget"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Home Budget" Height="500" Width="600" MinHeight="500" MinWidth="500"  TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="24"
+		
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+	<Grid Margin="50 25" >
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="Auto"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>			
+		</Grid.RowDefinitions>
+		<TextBlock Grid.Row="0" Grid.ColumnSpan="4" TextAlignment="Center" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="{DynamicResource SecondaryAccentBrush}">Home Budget</TextBlock>
+		<TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"><Run Text="Account"/></TextBlock>
+		<ComboBox x:Name="cbAccount" Grid.Row="1" Grid.Column="1"  />
+		
+		<Button Name="btnAccountEdit" Grid.Row="1" Grid.Column="2" ToolTip="Edit Operation" Width="30" Height="30" Padding="0" Margin="5">
+			<materialDesign:PackIcon Kind="BorderColor"/>
+		</Button>
+		<Button Name="btnAccountAdd" Grid.Row="1" Grid.Column="3" ToolTip="Add Operation" Width="30" Height="30" Padding="0" Margin="5">
+			<materialDesign:PackIcon Kind="Plus"/>
+		</Button>
+		
+		<Button Name="btnSum" Grid.Row="2" Grid.ColumnSpan="4"  Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" Margin="0">
+			<TextBlock Name="tblSum" Style="{StaticResource MaterialDesignDisplay1TextBlock}"><Run Text="15000 grn."/></TextBlock>
+		</Button>
+
+		<materialDesign:Badged VerticalAlignment="Center" Grid.Column="0" Grid.Row="3"  Badge="{materialDesign:PackIcon Plus}"  BadgeColorZoneMode="PrimaryLight">
+			<Button Name="btnOperationNew">Operation Doc</Button>
+		</materialDesign:Badged>		
+	</Grid>
 </Window>
