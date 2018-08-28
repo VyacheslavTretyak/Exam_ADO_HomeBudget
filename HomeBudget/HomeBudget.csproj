@@ -194,6 +194,9 @@
       <LastGenOutput>DataModel.cs</LastGenOutput>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Content>
+    <Resource Include="screenshots\2018-08-28 %281%29.png" />
+    <Resource Include="screenshots\2018-08-28 %282%29.png" />
+    <Resource Include="screenshots\2018-08-28.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
